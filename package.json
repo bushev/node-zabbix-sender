@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/shamil/node-zabbix-sender/issues"
   },
-  "homepage": "https://github.com/shamil/node-zabbix-sender#readme"
+  "homepage": "https://github.com/shamil/node-zabbix-sender#readme",
+  "dependencies": {
+    "socks": "2.6.2"
+  }
 }
