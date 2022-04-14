@@ -116,7 +116,7 @@ ZabbixSender.prototype.send = function (callback) {
             client.on('error', onError);
             client.on('close', onClose);
             client.write(data);
-        }).catch(onError);
+        }).catch(callback);
     } else {
         client = new Net.Socket();
 
