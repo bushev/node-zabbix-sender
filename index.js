@@ -84,6 +84,12 @@ ZabbixSender.prototype.send = function (callback) {
             return callback(error, {});
         }
 
+        if (response.length === 0) {
+            // Zabbix server closed the connection with no response
+            // That might happen if the server is not active in a cluster
+            return callback(new Error('got empty response from server'), {});
+        }
+
         // bail out if got wrong response
         if (response.slice(0, 5).toString() !== 'ZBXD\x01') {
             // in case of bad response, put the items back
